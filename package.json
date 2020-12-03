@@ -1,18 +1,21 @@
 {
   "name": "maverick-toolkit-react",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
-    "url": "URL_OF_YOUR_REPOSITORY"
+    "url": "git@github.com:maverickg59/maverick-toolkit-react.git"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "babel-cli": "^6.26.0",
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.0.0",
     "classnames": "^2.2.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -20,8 +23,8 @@
     "web-vitals": "^0.2.4"
   },
   "peerDependencies": {
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "scripts": {
     "build-examples": "react-scripts build",
