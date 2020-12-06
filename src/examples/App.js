@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Button, Icon, iconLibrary } from '../lib'
+import { Button, Icon, iconLibrary, Input } from '../lib'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
 const App = () => {
@@ -7,6 +7,7 @@ const App = () => {
   return (
     <Fragment>
       <h1>Test your components here:</h1>
+      <Input placeholder='put some data here' />
     </Fragment>
   )
 }

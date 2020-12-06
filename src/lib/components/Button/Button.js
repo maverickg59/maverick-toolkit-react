@@ -12,15 +12,14 @@ const Button = ({ color, className, href, onClick, children }) => {
     danger: 'c-btn-danger',
     link: 'c-btn-link',
   }
+  const classes = cn(className, colorMap[color], href ? null : 'c-btn')
   const link = (
-    <a className={cn(className, colorMap[color])} href={href}>
+    <a className={classes} href={href}>
       {children}
     </a>
   )
   const button = (
-    <button
-      className={cn(className, colorMap[color], 'c-btn')}
-      onClick={onClick}>
+    <button className={classes} onClick={onClick}>
       {children}
     </button>
   )
