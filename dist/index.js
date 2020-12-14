@@ -21,7 +21,15 @@ Object.defineProperty(exports, "iconLibrary", {
     return _Icon.iconLibrary;
   }
 });
+Object.defineProperty(exports, "Input", {
+  enumerable: true,
+  get: function get() {
+    return _Input.Input;
+  }
+});
 
 var _Button = require("./components/Button");
 
 var _Icon = require("./components/Icon");
+
+var _Input = require("./components/Input");

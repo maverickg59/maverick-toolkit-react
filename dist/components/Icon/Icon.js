@@ -15,11 +15,15 @@ var _reactFontawesome = require("@fortawesome/react-fontawesome");
 
 function Icon(_ref) {
   var className = _ref.className,
+      iconClassName = _ref.iconClassName,
       size = _ref.size,
       color = _ref.color,
       icon = _ref.icon;
-  return /*#__PURE__*/_react.default.createElement("span", null, /*#__PURE__*/_react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
-    className: (0, _classnames.default)(className, 'c-icon'),
+  var classes = (0, _classnames.default)(className, 'c-icon');
+  return /*#__PURE__*/_react.default.createElement("span", {
+    className: classes
+  }, /*#__PURE__*/_react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
+    className: iconClassName,
     size: size,
     color: color,
     icon: icon

@@ -7,6 +7,7 @@ const App = () => {
   return (
     <Fragment>
       <h1>Test your components here:</h1>
+      <Icon icon='heart' />
       <Input placeholder='put some data here' />
     </Fragment>
   )
