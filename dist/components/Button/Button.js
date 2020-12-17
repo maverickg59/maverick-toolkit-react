@@ -11,6 +11,8 @@ var _react = _interopRequireDefault(require("react"));
 
 var _classnames = _interopRequireDefault(require("classnames"));
 
+var _maverickToolkitUtils = require("maverick-toolkit-utils");
+
 var Button = function Button(_ref) {
   var color = _ref.color,
       className = _ref.className,
@@ -18,19 +20,6 @@ var Button = function Button(_ref) {
       onClick = _ref.onClick,
       children = _ref.children,
       buttonAsLink = _ref.buttonAsLink;
-
-  var snakeToCamel = function snakeToCamel(str) {
-    var reducer = function reducer(acc, value) {
-      return acc.concat(value);
-    };
-
-    if (typeof str !== 'string') return '';
-    var casedArray = str.split('-').map(function (word, i) {
-      return i === 0 ? word : word.charAt(0).toUpperCase().concat(word.slice(1));
-    });
-    return casedArray.reduce(reducer);
-  };
-
   var colorMap = {
     normal: 'c-btn-normal',
     default: 'c-btn-default',
@@ -42,7 +31,7 @@ var Button = function Button(_ref) {
     linkDark: 'c-btn-link-dark',
     linkLight: 'c-btn-link-light'
   };
-  var classes = (0, _classnames.default)(className, colorMap[snakeToCamel(color)], {
+  var classes = (0, _classnames.default)(className, colorMap[(0, _maverickToolkitUtils.kebabToCamel)(color)], {
     'c-btn': buttonAsLink
   });
 

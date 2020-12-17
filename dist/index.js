@@ -27,9 +27,17 @@ Object.defineProperty(exports, "Input", {
     return _Input.Input;
   }
 });
+Object.defineProperty(exports, "Copyright", {
+  enumerable: true,
+  get: function get() {
+    return _Notice.Copyright;
+  }
+});
 
 var _Button = require("./components/Button");
 
 var _Icon = require("./components/Icon");
 
 var _Input = require("./components/Input");
+
+var _Notice = require("./components/Notice");

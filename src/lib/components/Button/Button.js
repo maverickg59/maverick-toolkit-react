@@ -1,5 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
+import { kebabToCamel } from 'maverick-toolkit-utils'
 
 const Button = ({
   color,
@@ -9,15 +10,6 @@ const Button = ({
   children,
   buttonAsLink,
 }) => {
-  const snakeToCamel = str => {
-    const reducer = (acc, value) => acc.concat(value)
-    if (typeof str !== 'string') return ''
-    const casedArray = str.split('-').map((word, i) => {
-      return i === 0 ? word : word.charAt(0).toUpperCase().concat(word.slice(1))
-    })
-    return casedArray.reduce(reducer)
-  }
-
   const colorMap = {
     normal: 'c-btn-normal',
     default: 'c-btn-default',
@@ -30,7 +22,7 @@ const Button = ({
     linkLight: 'c-btn-link-light',
   }
 
-  const classes = cn(className, colorMap[snakeToCamel(color)], {
+  const classes = cn(className, colorMap[kebabToCamel(color)], {
     'c-btn': buttonAsLink,
   })
   const link = (
