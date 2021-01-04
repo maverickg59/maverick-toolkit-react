@@ -7254,10 +7254,10 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-maverick-toolkit-css@^0.1.2:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/maverick-toolkit-css/-/maverick-toolkit-css-0.1.3.tgz#0339f9f684c6e32ce605ef2110c933d97be2a54b"
-  integrity sha512-J6A2DpVr2yPEFYqCPd3LEZrR7VgLbGGNDqjGOBAWzJimFtlPOPxTMwG7rNw93tqrxBurAdYjsjbdy4JwEU02Jw==
+maverick-toolkit-css@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/maverick-toolkit-css/-/maverick-toolkit-css-0.2.3.tgz#7b858cea9ba7c5cf40555544ba82f050bd48b500"
+  integrity sha512-rdwTqKExSUb4Anlhi4tNurXiO/LX4NBSX3HZpUeuuyR2qu6yuabP596qw3wZnI/Ps+1KG6kz4wct74BFedvT7A==
 
 maverick-toolkit-utils@^0.0.2:
   version "0.0.2"

@@ -1,6 +1,6 @@
 {
   "name": "maverick-toolkit-react",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
@@ -17,7 +17,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "classnames": "^2.2.6",
-    "maverick-toolkit-css": "^0.1.2",
+    "maverick-toolkit-css": "^0.2.3",
     "maverick-toolkit-utils": "^0.0.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
