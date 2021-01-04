@@ -10,10 +10,11 @@ const App = () => {
       <h1>Test your components here:</h1>
       <Icon icon='heart' />
       <Input placeholder='put some data here' />
-      <Button color='danger' onClick={() => console.log('hi')}>
+      <Button color='primary' onClick={() => console.log('hi')}>
         hello
       </Button>
       <Copyright
+        className='u-text-center'
         entity='Maverick Enterprises'
         established={2010}
         msg="and it's subsidiaries"
