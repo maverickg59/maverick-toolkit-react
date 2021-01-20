@@ -11,15 +11,15 @@ const Button = ({
   buttonAsLink,
 }) => {
   const colorMap = {
-    normal: 'c-btn-normal',
-    default: 'c-btn-default',
-    primary: 'c-btn-primary',
-    success: 'c-btn-success',
-    info: 'c-btn-info',
-    warning: 'c-btn-warning',
-    danger: 'c-btn-danger',
-    linkDark: 'c-btn-link-dark',
-    linkLight: 'c-btn-link-light',
+    normal: 'c-btn--normal',
+    default: 'c-btn--default',
+    primary: 'c-btn--primary',
+    success: 'c-btn--success',
+    info: 'c-btn--info',
+    warning: 'c-btn--warning',
+    danger: 'c-btn--danger',
+    linkDark: 'c-btn--link-dark',
+    linkLight: 'c-btn--link-light',
   }
 
   const classes = cn(className, colorMap[kebabToCamel(color)], {

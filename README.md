@@ -6,4 +6,5 @@ The rules:
 
 ## TODO
 
-- Accessibility Compliance
+- Accessibility compliance
+- Build documentation site

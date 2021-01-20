@@ -1,24 +1,19 @@
 import React, { Fragment } from 'react'
-import { Button, Icon, iconLibrary, Input, Copyright } from '../lib'
+import { iconLibrary, Paginator } from '../lib'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import './App.scss'
+
+import { mockData } from './mockData'
+import Card from './Card'
 
 const App = () => {
   iconLibrary([faHeart])
   return (
     <Fragment>
       <h1>Test your components here:</h1>
-      <Icon icon='heart' />
-      <Input placeholder='put some data here' />
-      <Button color='primary' onClick={() => console.log('hi')}>
-        hello
-      </Button>
-      <Copyright
-        className='u-text-center'
-        entity='Maverick Enterprises'
-        established={2010}
-        msg="and it's subsidiaries"
-      />
+      <Paginator records={mockData} rows={5} adjacents={2}>
+        {({ title, value }) => <Card key={title} title={title} value={value} />}
+      </Paginator>
     </Fragment>
   )
 }

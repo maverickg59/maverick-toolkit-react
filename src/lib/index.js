@@ -1,4 +1,5 @@
 export { Button } from './components/Button'
+export { Copyright } from './components/Notice'
 export { Icon, iconLibrary } from './components/Icon'
 export { Input } from './components/Input'
-export { Copyright } from './components/Notice'
+export { Paginator } from './components/Paginator'
