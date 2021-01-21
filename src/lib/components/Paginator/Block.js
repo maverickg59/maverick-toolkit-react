@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
+import { Button } from '../Button'
 import { refIndex } from './'
 
 const Block = ({
@@ -13,6 +14,7 @@ const Block = ({
   blockIndex,
   adjacentPages,
   rangeLength,
+  blockColor,
   blockRefs,
 }) => {
   const handlePageChange = () => {
@@ -42,16 +44,15 @@ const Block = ({
   }
   return (
     <li>
-      <button
-        ref={ref => {
-          blockRefs.current[blockIndex] = ref
-        }}
+      <Button
+        color={blockColor}
+        ref={refValue => (blockRefs.current[blockIndex] = refValue)}
         className={cn('c-paginator__block', {
           'c-paginator__block--active': content - 1 === currentPage,
         })}
         onClick={() => handlePageChange()}>
         {content}
-      </button>
+      </Button>
     </li>
   )
 }
@@ -66,7 +67,11 @@ Block.propTypes = {
   blockIndex: PropTypes.number.isRequired,
   adjacentPages: PropTypes.number.isRequired,
   rangeLength: PropTypes.number.isRequired,
-  blockRefs: PropTypes.shape({}).isRequired,
+  blockColor: PropTypes.string,
+}
+
+PropTypes.defaultProps = {
+  blockColor: '',
 }
 
 export default Block

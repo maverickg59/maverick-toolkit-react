@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
+import { Button } from '../Button'
 
 const LimitBlocks = ({
   dispatch,
@@ -9,6 +10,7 @@ const LimitBlocks = ({
   blockType,
   pages,
   adjacentPages,
+  blockColor,
 }) => {
   const handlePageChange = () => {
     if (blockType === 'first') {
@@ -29,13 +31,14 @@ const LimitBlocks = ({
   }
   return (
     <li>
-      <button
+      <Button
+        color={blockColor}
         className={cn('c-paginator__block', {
           'c-paginator__block--active': content - 1 === currentPage,
         })}
         onClick={() => handlePageChange()}>
         {content}
-      </button>
+      </Button>
     </li>
   )
 }
@@ -47,11 +50,13 @@ LimitBlocks.propTypes = {
   currentPage: PropTypes.number.isRequired,
   pages: PropTypes.number,
   adjacentPages: PropTypes.number,
+  blockColor: PropTypes.string,
 }
 
 LimitBlocks.defaultProps = {
   pages: null,
   adjacentPages: 0,
+  blockColor: '',
 }
 
 export default LimitBlocks

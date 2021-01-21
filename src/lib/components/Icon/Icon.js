@@ -9,7 +9,7 @@ import { icons } from './Icons'
 export default function Icon({
   className,
   iconClassName,
-  size,
+  size = 'sm',
   color,
   customColor,
   icon,
@@ -49,7 +49,6 @@ Icon.propTypes = {
 Icon.defaultProps = {
   className: '',
   iconClassName: '',
-  size: '',
   color: '',
   customColor: '',
 }

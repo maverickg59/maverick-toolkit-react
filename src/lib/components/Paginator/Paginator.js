@@ -4,9 +4,16 @@ import { Icon } from '../Icon'
 import { chunk } from 'maverick-toolkit-utils'
 import { ArrowBlock, LimitBlock, Block, range } from './'
 
-function Paginator({ data, children, records, rows, adjacents }) {
+const Paginator = ({
+  data,
+  children,
+  records,
+  rows,
+  adjacents,
+  blockColor,
+}) => {
   const pages = data.length ? data.length : Math.ceil(records.length / rows)
-  const refs = useRef([])
+  const blockRefs = useRef([])
   const initialState = {
     chunkedPages: data.length ? data : chunk(records, rows),
     pagesArray: [...Array(pages).keys()],
@@ -52,13 +59,8 @@ function Paginator({ data, children, records, rows, adjacents }) {
       {chunkedPages[currentPage].map(props => {
         return children(props)
       })}
-      <Icon
-        className='u-margin-right-small'
-        icon='ellipsis-h'
-        color='gray-dark'
-      />
       <nav>
-        <ul className='o-row'>
+        <ul className='o-row o-row--gutters'>
           {[
             <ArrowBlock
               key='arrow-left'
@@ -68,6 +70,7 @@ function Paginator({ data, children, records, rows, adjacents }) {
               currentPage={currentPage}
               blockType='leftArrow'
               adjacentPages={adjacentPages}
+              blockColor={blockColor}
             />,
             pages > 5 && (
               <LimitBlock
@@ -77,8 +80,15 @@ function Paginator({ data, children, records, rows, adjacents }) {
                 currentPage={currentPage}
                 blockType='first'
                 adjacentPages={adjacentPages}
+                blockColor={blockColor}
               />
             ),
+            <Icon
+              key='ellipsis-left'
+              className='u-margin-right-small'
+              icon='ellipsis-h'
+              color='gray-dark'
+            />,
             range(
               pages,
               principalIndex,
@@ -89,7 +99,7 @@ function Paginator({ data, children, records, rows, adjacents }) {
               return (
                 <Block
                   key={blockIndex}
-                  blockRefs={refs}
+                  blockRefs={blockRefs}
                   dispatch={dispatch}
                   content={page + 1}
                   currentPage={currentPage}
@@ -99,9 +109,16 @@ function Paginator({ data, children, records, rows, adjacents }) {
                   blockIndex={blockIndex}
                   adjacentPages={adjacentPages}
                   rangeLength={rangeLength}
+                  blockColor={blockColor}
                 />
               )
             }),
+            <Icon
+              key='ellipsis-right'
+              className='u-margin-right-small'
+              icon='ellipsis-h'
+              color='gray-dark'
+            />,
             pages >= 6 && (
               <LimitBlock
                 key='limit-right'
@@ -111,6 +128,7 @@ function Paginator({ data, children, records, rows, adjacents }) {
                 blockType='last'
                 pages={pages}
                 adjacentPages={adjacentPages}
+                blockColor={blockColor}
               />
             ),
             <ArrowBlock
@@ -121,6 +139,7 @@ function Paginator({ data, children, records, rows, adjacents }) {
               blockType='rightArrow'
               currentPage={currentPage}
               adjacentPages={adjacentPages}
+              blockColor={blockColor}
             />,
           ]}
         </ul>
@@ -137,9 +156,11 @@ Paginator.propTypes = {
   rows: PropTypes.number.isRequired,
   Pages: PropTypes.number,
   data: PropTypes.arrayOf(PropTypes.shape([])),
+  blockColor: PropTypes.string,
 }
 
 Paginator.defaultProps = {
   adjacents: 0,
   data: [],
+  blockColor: '',
 }

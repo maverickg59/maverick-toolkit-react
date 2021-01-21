@@ -2,11 +2,10 @@
 
 ## TODO
 
-- ellipsis
+- ellipsis - finish styling
 - accessibility
 - handle range === 7 && adjacents === 1 - this causes a skip on right arrow
 - handle range === 9 && adjacents === 2 - this causes a skip on right arrow
-- core styling
 
 ### Defining each object as part of the component composition
 

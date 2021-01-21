@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Button } from '../Button'
 
 const ArrowBlock = ({
   dispatch,
@@ -8,6 +9,7 @@ const ArrowBlock = ({
   currentPage,
   blockType,
   adjacentPages,
+  blockColor,
 }) => {
   const handlePageChange = () => {
     if (blockType === 'leftArrow' && currentPage !== 0) {
@@ -65,11 +67,12 @@ const ArrowBlock = ({
 
   return (
     <li>
-      <button
+      <Button
         className='c-paginator__arrow-block'
+        color={blockColor}
         onClick={() => handlePageChange()}>
         {content}
-      </button>
+      </Button>
     </li>
   )
 }
@@ -81,10 +84,12 @@ ArrowBlock.propTypes = {
   blockType: PropTypes.string.isRequired,
   pages: PropTypes.number.isRequired,
   adjacentPages: PropTypes.number,
+  blockColor: PropTypes.string,
 }
 
 ArrowBlock.defaultProps = {
   adjacentPages: 0,
+  blockColor: '',
 }
 
 export default ArrowBlock
