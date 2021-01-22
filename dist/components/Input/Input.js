@@ -16,8 +16,10 @@ var _react = _interopRequireWildcard(require("react"));
 var _classnames = _interopRequireDefault(require("classnames"));
 
 var Input = function Input(_ref) {
-  var placeholder = _ref.placeholder,
-      className = _ref.className;
+  var _ref$placeholder = _ref.placeholder,
+      placeholder = _ref$placeholder === void 0 ? '' : _ref$placeholder,
+      _ref$className = _ref.className,
+      className = _ref$className === void 0 ? '' : _ref$className;
   var classes = (0, _classnames.default)(className, 'c-input');
 
   var _useState = (0, _react.useState)(''),

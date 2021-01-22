@@ -1,4 +1,4 @@
-export const mockData = [
+export const paginatorData = [
   { title: 'One', value: 1 },
   { title: 'Two', value: 2 },
   { title: 'Three', value: 3 },

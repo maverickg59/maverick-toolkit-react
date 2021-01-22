@@ -7541,9 +7541,8 @@
   dependencies:
     "object-visit" "^1.0.0"
 
-"maverick-toolkit-css@^0.2.3":
-  "integrity" "sha512-rdwTqKExSUb4Anlhi4tNurXiO/LX4NBSX3HZpUeuuyR2qu6yuabP596qw3wZnI/Ps+1KG6kz4wct74BFedvT7A=="
-  "resolved" "https://registry.yarnpkg.com/maverick-toolkit-css/-/maverick-toolkit-css-0.2.3.tgz"
+"maverick-toolkit-css@file:../maverick-toolkit-css":
+  "resolved" "file:../maverick-toolkit-css"
   "version" "0.2.3"
 
 "maverick-toolkit-utils@^0.0.4":

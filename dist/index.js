@@ -9,6 +9,18 @@ Object.defineProperty(exports, "Button", {
     return _Button.Button;
   }
 });
+Object.defineProperty(exports, "Copyright", {
+  enumerable: true,
+  get: function get() {
+    return _Notice.Copyright;
+  }
+});
+Object.defineProperty(exports, "Header", {
+  enumerable: true,
+  get: function get() {
+    return _Header.Header;
+  }
+});
 Object.defineProperty(exports, "Icon", {
   enumerable: true,
   get: function get() {
@@ -27,17 +39,21 @@ Object.defineProperty(exports, "Input", {
     return _Input.Input;
   }
 });
-Object.defineProperty(exports, "Copyright", {
+Object.defineProperty(exports, "Paginator", {
   enumerable: true,
   get: function get() {
-    return _Notice.Copyright;
+    return _Paginator.Paginator;
   }
 });
 
 var _Button = require("./components/Button");
 
+var _Notice = require("./components/Notice");
+
+var _Header = require("./components/Header");
+
 var _Icon = require("./components/Icon");
 
 var _Input = require("./components/Input");
 
-var _Notice = require("./components/Notice");
+var _Paginator = require("./components/Paginator");

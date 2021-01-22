@@ -7,15 +7,14 @@ import { kebabToCamel } from 'maverick-toolkit-utils'
 import { icons } from './Icons'
 
 export default function Icon({
-  className,
-  iconClassName,
+  className = '',
+  iconClassName = '',
   size = 'sm',
-  color,
-  customColor,
+  color = '',
+  customColor = '',
   icon,
 }) {
   const classes = cn(className, 'c-icon')
-
   const colorMap = {
     white: 'c-icon--white',
     grayDark: 'c-icon--gray-dark',
@@ -24,7 +23,6 @@ export default function Icon({
     gray: 'c-icon--gray',
   }
   library.add(icons)
-
   return (
     <span className={classes}>
       <FontAwesomeIcon
@@ -44,11 +42,4 @@ Icon.propTypes = {
   color: PropTypes.string,
   customColor: PropTypes.string,
   icon: PropTypes.string.isRequired,
-}
-
-Icon.defaultProps = {
-  className: '',
-  iconClassName: '',
-  color: '',
-  customColor: '',
 }

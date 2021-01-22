@@ -24,7 +24,6 @@ const Paginator = ({
       principalIndex: 1,
     },
   }
-
   function reducer(state, { type, payload }) {
     switch (type) {
       case 'SET_INDEX_VALUES':

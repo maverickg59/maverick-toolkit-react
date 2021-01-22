@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import cn from 'classnames'
 
-const Input = ({ placeholder, className }) => {
+const Input = ({ placeholder = '', className = '' }) => {
   const classes = cn(className, 'c-input')
   const [data, setData] = useState('')
   const onChange = e => {
@@ -15,6 +16,11 @@ const Input = ({ placeholder, className }) => {
       placeholder={placeholder}
     />
   )
+}
+
+Input.propTypes = {
+  placeholder: PropTypes.string,
+  className: PropTypes.string,
 }
 
 export default Input
