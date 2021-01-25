@@ -65,16 +65,21 @@ const ArrowBlock = ({
     }
   }
 
-  return (
+  return pages >= 2 ? (
     <li>
       <Button
+        ariaLabel={`${
+          blockType === 'leftArrow'
+            ? 'Navigate one page left'
+            : 'Navigate one page right'
+        }`}
         className='c-paginator__arrow-block'
         color={blockColor}
         onClick={() => handlePageChange()}>
         {content}
       </Button>
     </li>
-  )
+  ) : null
 }
 
 ArrowBlock.propTypes = {

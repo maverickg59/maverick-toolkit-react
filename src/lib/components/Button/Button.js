@@ -11,6 +11,8 @@ const Button = forwardRef(
       href = '',
       onClick = () => {},
       children = <Fragment />,
+      ariaLabel,
+      ariaCurrent = false,
     },
     ref
   ) => {
@@ -28,12 +30,21 @@ const Button = forwardRef(
 
     const classes = cn(className, colorMap[kebabToCamel(color)])
     const link = (
-      <a className={classes} href={href}>
+      <a
+        aria-current={ariaCurrent}
+        aria-label={ariaLabel}
+        className={classes}
+        href={href}>
         {children}
       </a>
     )
     const button = (
-      <button ref={ref} className={classes} onClick={onClick}>
+      <button
+        aria-current={ariaCurrent}
+        aria-label={ariaLabel}
+        ref={ref}
+        className={classes}
+        onClick={onClick}>
         {typeof children === 'function' ? props => children(props) : children}
       </button>
     )
@@ -48,6 +59,8 @@ Button.propTypes = {
   onClick: PropTypes.func,
   children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   linkAsButton: PropTypes.bool,
+  ariaLabel: PropTypes.string.isRequired,
+  ariaCurrent: PropTypes.bool,
 }
 
 export default Button

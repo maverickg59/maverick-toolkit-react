@@ -1,5 +1,9 @@
 export const headerLinks = [
-  { url: '/', title: 'Home' },
-  { url: '/sandbox', title: 'Sandbox' },
-  { url: '/typography', title: 'Typography' },
+  { url: '/', title: 'Home', ariaLabel: 'Link to Home Page' },
+  {
+    url: '/typography',
+    title: 'Typography',
+    ariaLabel: 'Link to Typography Page',
+  },
+  { url: '/sandbox', title: 'Sandbox', ariaLabel: 'Link to Sandbox Page' },
 ]

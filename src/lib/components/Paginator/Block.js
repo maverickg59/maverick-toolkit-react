@@ -13,42 +13,45 @@ const Block = ({
   principalIndex,
   blockIndex,
   adjacentPages,
+  adjacents,
   rangeLength,
   blockColor,
   blockRefs,
 }) => {
   const handlePageChange = () => {
     blockRefs.current[
-      refIndex(blockIndex, pages, currentPage, rangeLength)
+      refIndex(blockIndex, pages, currentPage, rangeLength, adjacents)
     ].focus()
-    const adjacents = adjacentPages * 2
+    const adjacent = adjacentPages * 2
     if (blockIndex === 0) {
       const minPage = page <= 1 ? principalIndex : page - 1
       dispatch({
         type: 'SET_INDEX_VALUES',
-        payload: { currentPage: page, principalIndex: minPage },
+        payload: { currentPage: page, principalIndex: minPage, blockIndex },
       })
     } else if (blockIndex === rangeLength) {
-      const maxPage =
-        page >= pages - 2 ? principalIndex : page - (1 + adjacents)
+      const maxPage = page >= pages - 2 ? principalIndex : page - (1 + adjacent)
       dispatch({
         type: 'SET_INDEX_VALUES',
-        payload: { currentPage: page, principalIndex: maxPage },
+        payload: { currentPage: page, principalIndex: maxPage, blockIndex },
       })
     } else {
       dispatch({
         type: 'SET_INDEX_VALUES',
-        payload: { currentPage: page, principalIndex },
+        payload: { currentPage: page, principalIndex, blockIndex },
       })
     }
   }
+  const isActive = content - 1 === currentPage
   return (
     <li>
       <Button
+        ariaCurrent={isActive}
+        ariaLabel={`Goto Page ${page + 1}${isActive ? ', current page' : ''}`}
         color={blockColor}
         ref={refValue => (blockRefs.current[blockIndex] = refValue)}
         className={cn('c-paginator__block', {
-          'c-paginator__block--active': content - 1 === currentPage,
+          'c-paginator__block--active': isActive,
         })}
         onClick={() => handlePageChange()}>
         {content}
@@ -66,6 +69,7 @@ Block.propTypes = {
   principalIndex: PropTypes.number.isRequired,
   blockIndex: PropTypes.number.isRequired,
   adjacentPages: PropTypes.number.isRequired,
+  adjacents: PropTypes.number.isRequired,
   rangeLength: PropTypes.number.isRequired,
   blockColor: PropTypes.string,
 }

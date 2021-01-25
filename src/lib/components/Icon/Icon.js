@@ -13,6 +13,7 @@ export default function Icon({
   color = '',
   customColor = '',
   icon,
+  ariaLabel,
 }) {
   const classes = cn(className, 'c-icon')
   const colorMap = {
@@ -42,4 +43,5 @@ Icon.propTypes = {
   color: PropTypes.string,
   customColor: PropTypes.string,
   icon: PropTypes.string.isRequired,
+  ariaLabel: PropTypes.string.isRequired,
 }

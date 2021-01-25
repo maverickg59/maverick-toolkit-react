@@ -2,31 +2,29 @@
 
 ## TODO
 
-- ellipsis - finish styling
-- accessibility
-- handle range === 7 && adjacents === 1 - this causes a skip on right arrow
-- handle range === 9 && adjacents === 2 - this causes a skip on right arrow
+- handle ellipsis and block 2 appears when (block 3 === range[0]) and user clicks block 3
+- handle right ellipsis
 
 ### Defining each object as part of the component composition
 
 Up to the point I started building this component I'd never written a pagination component. Not even using HTML. It's never really been on my list of to do's. It's with honesty that I can say that I never expected a pagination implementation to be so difficult.
 
-Standard pagination isn't entirely too complex, but what made this tricky is replacing the standard >> double arrow indicating a navigation to the first or last page with a first and last indexed block. After about a dozen tutorials and probably five failed implementations I realized it was necessary to define each object as it's composed to clarify the high level view of the component.
+Standard pagination isn't entirely too complex, but what made this tricky is replacing the standard >> double arrow indicating a navigation to the first or last page with a first and last indexed block and the dynamic nature of the paginator allowing a 5, 7, and 9 block configuration. After about a dozen tutorials and probably five failed implementations I realized it was necessary to define each object as it's composed to clarify the high level view of the component.
 
 I've left my original definitions mostly intact and haven't added any. They may help you to understand what's going on.
 
-I also found it necessary to define the the output of each possible configuration of the paginator. This helped me to understand the effect of each action as the paginator is in play.
+I also found it necessary to define the output of each possible configuration of the paginator. This helped me to understand the effect of each action as the paginator is in play.
 
 #### Definitions
 
 records = an array of objects where each object is a record to be displayed
 rows = total number of records to display on a single page
-adjacents = total number of blocks as the product of adjacents x 2 to be pushed onto the edge of the range
+adjacents = total number of blocks as the product of n x 2 to be pushed onto the edge of the range
 pages = total number of pages to be displayed by the paginator
 currentPage = current page
 principal = the first block in a range of pagination blocks
-limits = the first and last blocks in pagination
-range = an array containing the total span of blocks to be rendered
+limit blocks = the first and last blocks in pagination
+range = an array containing the total span of blocks to be rendered minus limit blocks
 block = a navigation element that corresponds by page number to a rendered collection of content
 
 #### Outputs
