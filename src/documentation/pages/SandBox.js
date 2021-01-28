@@ -9,8 +9,8 @@ const SandBox = () => {
       <Paginator
         blockColor='primary'
         records={paginatorData}
-        rows={8}
-        adjacents={0}>
+        rows={5}
+        adjacents={1}>
         {({ title, value }) => <Card key={title} title={title} value={value} />}
       </Paginator>
     </Fragment>

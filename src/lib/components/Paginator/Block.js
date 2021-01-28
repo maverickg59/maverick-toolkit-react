@@ -15,10 +15,14 @@ const Block = ({
   adjacentPages,
   adjacents,
   rangeLength,
-  blockColor,
+  blockColor = '',
   blockRefs,
 }) => {
   const handlePageChange = () => {
+    dispatch({
+      type: 'SET_PREV_CLICK',
+      payload: { prevClick: 'block' },
+    })
     blockRefs.current[
       refIndex(blockIndex, pages, currentPage, rangeLength, adjacents)
     ].focus()
@@ -68,14 +72,11 @@ Block.propTypes = {
   pages: PropTypes.number.isRequired,
   principalIndex: PropTypes.number.isRequired,
   blockIndex: PropTypes.number.isRequired,
+  blockRefs: PropTypes.shape({}).isRequired,
   adjacentPages: PropTypes.number.isRequired,
   adjacents: PropTypes.number.isRequired,
   rangeLength: PropTypes.number.isRequired,
   blockColor: PropTypes.string,
-}
-
-PropTypes.defaultProps = {
-  blockColor: '',
 }
 
 export default Block

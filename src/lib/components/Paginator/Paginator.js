@@ -26,6 +26,7 @@ const Paginator = ({
     adjacentPages: adjacents,
     adjacentEdgeCase: isAdjacentEdgeCase(pages, adjacents),
     rangeLength: 2 + adjacents * 2,
+    prevClick: '',
     indexValues: {
       currentPage: 0,
       principalIndex: 1,
@@ -45,6 +46,9 @@ const Paginator = ({
       case 'SET_ADJACENT_PAGES':
         const { adjacentPages, rangeLength } = payload
         return { ...state, adjacentPages, rangeLength }
+      case 'SET_PREV_CLICK':
+        const { prevClick, page } = payload
+        return { ...state, prevClick, page }
       default:
         throw new Error()
     }
@@ -56,6 +60,7 @@ const Paginator = ({
     adjacentPages,
     adjacentEdgeCase,
     rangeLength,
+    prevClick,
     indexValues: { currentPage, principalIndex },
   } = state
 
@@ -100,6 +105,7 @@ const Paginator = ({
               currentPage={currentPage}
               adjacents={adjacents}
               isAdjacentEdgeCase={adjacentEdgeCase}
+              prevClick={prevClick}
             />,
             range(
               pages,
@@ -107,23 +113,25 @@ const Paginator = ({
               adjacentPages,
               pagesArray,
               dispatch
-            ).map((page, blockIndex) => (
-              <Block
-                key={blockIndex}
-                blockRefs={blockRefs}
-                dispatch={dispatch}
-                content={page + 1}
-                currentPage={currentPage}
-                page={page}
-                pages={pages}
-                principalIndex={principalIndex}
-                blockIndex={blockIndex}
-                adjacentPages={adjacentPages}
-                adjacents={adjacents}
-                rangeLength={rangeLength}
-                blockColor={blockColor}
-              />
-            )),
+            ).map((page, blockIndex) => {
+              return (
+                <Block
+                  key={blockIndex}
+                  blockRefs={blockRefs}
+                  dispatch={dispatch}
+                  content={page + 1}
+                  currentPage={currentPage}
+                  page={page}
+                  pages={pages}
+                  principalIndex={principalIndex}
+                  blockIndex={blockIndex}
+                  adjacentPages={adjacentPages}
+                  adjacents={adjacents}
+                  rangeLength={rangeLength}
+                  blockColor={blockColor}
+                />
+              )
+            }),
             <Ellipsis
               key='ellipsis-right'
               position='right'
@@ -131,6 +139,8 @@ const Paginator = ({
               currentPage={currentPage}
               adjacents={adjacents}
               isAdjacentEdgeCase={adjacentEdgeCase}
+              prevClick={prevClick}
+              rangeLength={rangeLength}
             />,
             <LimitBlock
               key='limit-right'
@@ -161,11 +171,10 @@ const Paginator = ({
 }
 
 Paginator.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape([])),
   children: PropTypes.func.isRequired,
   records: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   rows: PropTypes.number.isRequired,
-  Pages: PropTypes.number,
-  data: PropTypes.arrayOf(PropTypes.shape([])),
   blockColor: PropTypes.string,
 }
 

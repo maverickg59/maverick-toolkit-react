@@ -8,10 +8,14 @@ const ArrowBlock = ({
   pages,
   currentPage,
   blockType,
-  adjacentPages,
-  blockColor,
+  adjacentPages = 0,
+  blockColor = '',
 }) => {
   const handlePageChange = () => {
+    dispatch({
+      type: 'SET_PREV_CLICK',
+      payload: { prevClick: 'arrow' },
+    })
     if (blockType === 'leftArrow' && currentPage !== 0) {
       if (currentPage < 3) {
         dispatch({
@@ -90,11 +94,6 @@ ArrowBlock.propTypes = {
   pages: PropTypes.number.isRequired,
   adjacentPages: PropTypes.number,
   blockColor: PropTypes.string,
-}
-
-ArrowBlock.defaultProps = {
-  adjacentPages: 0,
-  blockColor: '',
 }
 
 export default ArrowBlock

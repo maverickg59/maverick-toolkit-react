@@ -8,17 +8,29 @@ const Ellipsis = ({
   isAdjacentEdgeCase,
   adjacents,
   currentPage,
+  prevClick,
+  rangeLength,
 }) => {
   const showEllipsis = () => {
-    const leftEdgeCase = currentPage === 2
     if (pages <= 5 || isAdjacentEdgeCase) {
       return false
     }
-    if (position === 'left') {
-      return currentPage > 1
+    if (position === 'left' && currentPage > 1) {
+      return prevClick === 'block' && currentPage === 2 ? false : true
     }
     if (position === 'right') {
-      return true
+      // range === 5
+      // direction = right show when currentPage < 12
+      // direction = left show when currentPage < 10
+
+      // range === 7
+      // direction = right show when currentPage < 13
+      // direction = left show when currentPage < 11
+      console.log(currentPage + rangeLength !== pages - 2)
+      const arrow = 4 + adjacents * 2
+      const block = 4 + adjacents
+      //   return currentPage < pages - (prevClick === 'arrow' ? arrow : block)
+      return currentPage + rangeLength !== pages - 2
     }
   }
   return showEllipsis() ? (
@@ -39,6 +51,8 @@ Ellipsis.propTypes = {
   isAdjacentEdgeCase: PropTypes.bool.isRequired,
   adjacents: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
+  prevClick: PropTypes.string.isRequired,
+  rangeLength: PropTypes.number,
 }
 
 export default Ellipsis
