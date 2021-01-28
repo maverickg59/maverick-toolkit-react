@@ -30,7 +30,8 @@ function Icon(_ref) {
       color = _ref$color === void 0 ? '' : _ref$color,
       _ref$customColor = _ref.customColor,
       customColor = _ref$customColor === void 0 ? '' : _ref$customColor,
-      icon = _ref.icon;
+      icon = _ref.icon,
+      ariaLabel = _ref.ariaLabel;
   var classes = (0, _classnames.default)(className, 'c-icon');
   var colorMap = {
     white: 'c-icon--white',

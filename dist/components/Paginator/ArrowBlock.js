@@ -17,10 +17,19 @@ var ArrowBlock = function ArrowBlock(_ref) {
       pages = _ref.pages,
       currentPage = _ref.currentPage,
       blockType = _ref.blockType,
-      adjacentPages = _ref.adjacentPages,
-      blockColor = _ref.blockColor;
+      _ref$adjacentPages = _ref.adjacentPages,
+      adjacentPages = _ref$adjacentPages === void 0 ? 0 : _ref$adjacentPages,
+      _ref$blockColor = _ref.blockColor,
+      blockColor = _ref$blockColor === void 0 ? '' : _ref$blockColor;
 
   var handlePageChange = function handlePageChange() {
+    dispatch({
+      type: 'SET_PREV_CLICK',
+      payload: {
+        prevClick: 'arrow'
+      }
+    });
+
     if (blockType === 'leftArrow' && currentPage !== 0) {
       if (currentPage < 3) {
         dispatch({
@@ -78,18 +87,15 @@ var ArrowBlock = function ArrowBlock(_ref) {
     }
   };
 
-  return /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_Button.Button, {
+  return pages >= 2 ? /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_Button.Button, {
+    ariaLabel: "".concat(blockType === 'leftArrow' ? 'Navigate one page left' : 'Navigate one page right'),
     className: "c-paginator__arrow-block",
     color: blockColor,
     onClick: function onClick() {
       return handlePageChange();
     }
-  }, content));
+  }, content)) : null;
 };
 
-ArrowBlock.defaultProps = {
-  adjacentPages: 0,
-  blockColor: ''
-};
 var _default = ArrowBlock;
 exports.default = _default;

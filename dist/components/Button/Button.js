@@ -27,7 +27,10 @@ var Button = /*#__PURE__*/(0, _react.forwardRef)(function (_ref, ref) {
       _ref$onClick = _ref.onClick,
       onClick = _ref$onClick === void 0 ? function () {} : _ref$onClick,
       _ref$children = _ref.children,
-      children = _ref$children === void 0 ? /*#__PURE__*/_react.default.createElement(_react.Fragment, null) : _ref$children;
+      children = _ref$children === void 0 ? /*#__PURE__*/_react.default.createElement(_react.Fragment, null) : _ref$children,
+      ariaLabel = _ref.ariaLabel,
+      _ref$ariaCurrent = _ref.ariaCurrent,
+      ariaCurrent = _ref$ariaCurrent === void 0 ? false : _ref$ariaCurrent;
   var colorMap = {
     normal: 'c-btn--normal',
     default: 'c-btn--default',
@@ -42,11 +45,15 @@ var Button = /*#__PURE__*/(0, _react.forwardRef)(function (_ref, ref) {
   var classes = (0, _classnames.default)(className, colorMap[(0, _maverickToolkitUtils.kebabToCamel)(color)]);
 
   var link = /*#__PURE__*/_react.default.createElement("a", {
+    "aria-current": ariaCurrent,
+    "aria-label": ariaLabel,
     className: classes,
     href: href
   }, children);
 
   var button = /*#__PURE__*/_react.default.createElement("button", {
+    "aria-current": ariaCurrent,
+    "aria-label": ariaLabel,
     ref: ref,
     className: classes,
     onClick: onClick
@@ -62,7 +69,9 @@ Button.propTypes = {
   href: _propTypes.default.string,
   onClick: _propTypes.default.func,
   children: _propTypes.default.oneOfType([_propTypes.default.func, _propTypes.default.node]),
-  linkAsButton: _propTypes.default.bool
+  linkAsButton: _propTypes.default.bool,
+  ariaLabel: _propTypes.default.string.isRequired,
+  ariaCurrent: _propTypes.default.bool
 };
 var _default = Button;
 exports.default = _default;

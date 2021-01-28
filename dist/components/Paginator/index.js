@@ -29,6 +29,12 @@ Object.defineProperty(exports, "Block", {
     return _Block.default;
   }
 });
+Object.defineProperty(exports, "Ellipsis", {
+  enumerable: true,
+  get: function get() {
+    return _Ellipsis.default;
+  }
+});
 Object.defineProperty(exports, "range", {
   enumerable: true,
   get: function get() {
@@ -41,6 +47,12 @@ Object.defineProperty(exports, "refIndex", {
     return _helpers.refIndex;
   }
 });
+Object.defineProperty(exports, "isAdjacentEdgeCase", {
+  enumerable: true,
+  get: function get() {
+    return _helpers.isAdjacentEdgeCase;
+  }
+});
 
 var _Paginator = _interopRequireDefault(require("./Paginator"));
 
@@ -49,5 +61,7 @@ var _LimitBlock = _interopRequireDefault(require("./LimitBlock"));
 var _ArrowBlock = _interopRequireDefault(require("./ArrowBlock"));
 
 var _Block = _interopRequireDefault(require("./Block"));
+
+var _Ellipsis = _interopRequireDefault(require("./Ellipsis"));
 
 var _helpers = require("./helpers");

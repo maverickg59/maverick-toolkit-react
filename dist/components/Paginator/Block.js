@@ -9,8 +9,6 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
 var _classnames = _interopRequireDefault(require("classnames"));
 
 var _Button = require("../Button");
@@ -26,13 +24,21 @@ var Block = function Block(_ref) {
       principalIndex = _ref.principalIndex,
       blockIndex = _ref.blockIndex,
       adjacentPages = _ref.adjacentPages,
+      adjacents = _ref.adjacents,
       rangeLength = _ref.rangeLength,
-      blockColor = _ref.blockColor,
+      _ref$blockColor = _ref.blockColor,
+      blockColor = _ref$blockColor === void 0 ? '' : _ref$blockColor,
       blockRefs = _ref.blockRefs;
 
   var handlePageChange = function handlePageChange() {
-    blockRefs.current[(0, _.refIndex)(blockIndex, pages, currentPage, rangeLength)].focus();
-    var adjacents = adjacentPages * 2;
+    dispatch({
+      type: 'SET_PREV_CLICK',
+      payload: {
+        prevClick: 'block'
+      }
+    });
+    blockRefs.current[(0, _.refIndex)(blockIndex, pages, currentPage, rangeLength, adjacents)].focus();
+    var adjacent = adjacentPages * 2;
 
     if (blockIndex === 0) {
       var minPage = page <= 1 ? principalIndex : page - 1;
@@ -40,16 +46,18 @@ var Block = function Block(_ref) {
         type: 'SET_INDEX_VALUES',
         payload: {
           currentPage: page,
-          principalIndex: minPage
+          principalIndex: minPage,
+          blockIndex: blockIndex
         }
       });
     } else if (blockIndex === rangeLength) {
-      var maxPage = page >= pages - 2 ? principalIndex : page - (1 + adjacents);
+      var maxPage = page >= pages - 2 ? principalIndex : page - (1 + adjacent);
       dispatch({
         type: 'SET_INDEX_VALUES',
         payload: {
           currentPage: page,
-          principalIndex: maxPage
+          principalIndex: maxPage,
+          blockIndex: blockIndex
         }
       });
     } else {
@@ -57,19 +65,23 @@ var Block = function Block(_ref) {
         type: 'SET_INDEX_VALUES',
         payload: {
           currentPage: page,
-          principalIndex: principalIndex
+          principalIndex: principalIndex,
+          blockIndex: blockIndex
         }
       });
     }
   };
 
+  var isActive = content - 1 === currentPage;
   return /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_Button.Button, {
+    ariaCurrent: isActive,
+    ariaLabel: "Goto Page ".concat(page + 1).concat(isActive ? ', current page' : ''),
     color: blockColor,
     ref: function ref(refValue) {
       return blockRefs.current[blockIndex] = refValue;
     },
     className: (0, _classnames.default)('c-paginator__block', {
-      'c-paginator__block--active': content - 1 === currentPage
+      'c-paginator__block--active': isActive
     }),
     onClick: function onClick() {
       return handlePageChange();
@@ -77,8 +89,5 @@ var Block = function Block(_ref) {
   }, content));
 };
 
-_propTypes.default.defaultProps = {
-  blockColor: ''
-};
 var _default = Block;
 exports.default = _default;
