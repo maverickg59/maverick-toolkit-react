@@ -1,25 +1,40 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { Home, SandBox, Typography, headerLinks } from './'
-import { Header, iconLibrary } from '../lib'
+import { Home, Sandbox, Typography, headerLinks } from './'
+import { Header, Sidebar, iconLibrary } from '../lib'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import './index.scss'
 
 const App = () => {
   iconLibrary([faHeart])
   return (
-    <Fragment>
-      <Header links={headerLinks}></Header>
-      <Router>
-        <section>
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/sandbox' component={SandBox} />
-            <Route exact path='/typography' component={Typography} />
-          </Switch>
-        </section>
-      </Router>
-    </Fragment>
+    <div className='o-col o-col--standard'>
+      <Header
+        className='c-docs__header'
+        color='link-dark'
+        logoText='Maverick-DS'
+      />
+      <div className='c-docs__main o-row'>
+        <div className='o-row__item o-row__item--shrink'>
+          <Sidebar color='link-light' links={headerLinks} />
+        </div>
+        <div className='o-row__item'>
+          <div className='o-row'>
+            <div className='o-row__item u-1/1'>
+              <Router>
+                <section>
+                  <Switch>
+                    <Route exact path='/' component={Home} />
+                    <Route exact path='/sandbox' component={Sandbox} />
+                    <Route exact path='/typography' component={Typography} />
+                  </Switch>
+                </section>
+              </Router>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 

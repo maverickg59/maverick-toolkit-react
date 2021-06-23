@@ -1,1 +1,14 @@
 @import 'maverick-toolkit-css';
+
+#root {
+  background-color: $color-lightgray;
+  height: 100%;
+}
+
+.c-docs__header {
+  background-color: $color-white;
+}
+
+.c-docs__main {
+  height: 100%;
+}

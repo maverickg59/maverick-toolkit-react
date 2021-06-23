@@ -26,15 +26,14 @@ const Ellipsis = ({
       // range === 7
       // direction = right show when currentPage < 13
       // direction = left show when currentPage < 11
-      console.log(currentPage + rangeLength !== pages - 2)
-      const arrow = 4 + adjacents * 2
-      const block = 4 + adjacents
+      // const arrow = 4 + adjacents * 2
+      // const block = 4 + adjacents
       //   return currentPage < pages - (prevClick === 'arrow' ? arrow : block)
       return currentPage + rangeLength !== pages - 2
     }
   }
   return showEllipsis() ? (
-    <div className='o-row o-align__item--end' aria-hidden='true'>
+    <div className='o-row o-align--end' aria-hidden='true'>
       <Icon
         ariaLabel='Ellipsis replacing hidden pages'
         className='u-margin-right-small'

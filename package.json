@@ -1,5 +1,6 @@
 {
   "name": "maverick-toolkit-react",
+  "license": "MIT",
   "version": "0.1.13",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -16,12 +17,9 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "classnames": "^2.2.6",
-    "maverick-toolkit-css": "^0.2.3",
-    "maverick-toolkit-utils": "^0.0.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-scripts": "4.0.0",
+    "react-scripts": "4.0.3",
     "web-vitals": "^0.2.4"
   },
   "peerDependencies": {
@@ -57,7 +55,10 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.13",
-    "node-sass": "4.14.1",
-    "react-router-dom": "^5.2.0"
+    "classnames": "^2.2.6",
+    "maverick-toolkit-css": "^0.2.5",
+    "maverick-toolkit-utils": "^0.0.4",
+    "react-router-dom": "^5.2.0",
+    "sass": "^1.35.1"
   }
 }

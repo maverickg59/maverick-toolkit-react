@@ -2,16 +2,16 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
 
-const Input = ({ placeholder = '', className = '' }) => {
+const Input = ({ placeholder = '', className = '', onChange, value }) => {
   const classes = cn(className, 'c-input')
-  const [data, setData] = useState('')
-  const onChange = e => {
-    setData(e.target.value)
-  }
+  // const [data, setData] = useState('')
+  // const onChange = e => {
+  //   setData(e.target.value)
+  // }
   return (
     <input
       className={classes}
-      value={data}
+      value={value}
       onChange={onChange}
       placeholder={placeholder}
     />

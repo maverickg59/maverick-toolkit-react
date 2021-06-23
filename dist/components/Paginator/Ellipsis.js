@@ -36,16 +36,15 @@ var Ellipsis = function Ellipsis(_ref) {
       // range === 7
       // direction = right show when currentPage < 13
       // direction = left show when currentPage < 11
-      console.log(currentPage + rangeLength !== pages - 2);
-      var arrow = 4 + adjacents * 2;
-      var block = 4 + adjacents; //   return currentPage < pages - (prevClick === 'arrow' ? arrow : block)
-
+      // const arrow = 4 + adjacents * 2
+      // const block = 4 + adjacents
+      //   return currentPage < pages - (prevClick === 'arrow' ? arrow : block)
       return currentPage + rangeLength !== pages - 2;
     }
   };
 
   return showEllipsis() ? /*#__PURE__*/_react.default.createElement("div", {
-    className: "o-row o-align__item--end",
+    className: "o-row o-align--end",
     "aria-hidden": "true"
   }, /*#__PURE__*/_react.default.createElement(_Icon.Icon, {
     ariaLabel: "Ellipsis replacing hidden pages",

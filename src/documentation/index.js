@@ -1,11 +1,11 @@
 // pages
-export { Home, SandBox, Typography } from './pages'
+export { Home, Sandbox, Typography } from './pages'
 
 // mocks
 export { paginatorData } from './mocks'
 
 // components
-export { Card } from './components'
+export { Page } from './components'
 
 // configs
 export { headerLinks } from './configs'

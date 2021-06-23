@@ -64,8 +64,6 @@ const Paginator = ({
     indexValues: { currentPage, principalIndex },
   } = state
 
-  console.log(`currentPage ${currentPage}`)
-
   return (
     <Fragment>
       {chunkedPages[currentPage].map(props => {
