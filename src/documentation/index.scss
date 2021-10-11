@@ -1,14 +1,25 @@
 @import 'maverick-toolkit-css';
-
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap');
+body {
+  height: 100vh;
+}
 #root {
   background-color: $color-lightgray;
   height: 100%;
 }
 
 .c-docs__header {
-  background-color: $color-white;
+  background-color: $color-softgray;
+  color: $color-white;
 }
 
 .c-docs__main {
   height: 100%;
+}
+
+.c-hello-world {
+  background-color: #2870d1;
+  color: $color-white;
+  font-family: 'PT Sans', sans-serif;
+  padding: 10px 20px 10px 20px;
 }

@@ -9,7 +9,7 @@ const Copyright = ({ className = '', established, entity, msg = '' }) => {
   const text = `${'\u00A9 '}${
     established === parseInt(year) ? '' : established + ' - '
   }${year} ${entity}${msg ? ' ' + msg + '.' : '.'} All rights reserved.`
-  return <p className={classes}>{text}</p>
+  return <span className={classes}>{text}</span>
 }
 
 Copyright.propTypes = {

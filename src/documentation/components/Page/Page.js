@@ -4,10 +4,10 @@ import PropTypes from 'prop-types'
 const Page = ({ title, children }) => {
   return (
     <Fragment>
-      <div className='o-row u-border-b u-p-lg'>
+      <div className='c-docs__header o-row u-p-lg'>
         <h1 className='u-m-r-sm'>{title}</h1>
       </div>
-      {children}
+      <div className='c-docs__content o-row u-p-lg'>{children}</div>
     </Fragment>
   )
 }

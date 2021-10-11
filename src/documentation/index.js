@@ -1,8 +1,8 @@
 // pages
 export { Home, Sandbox, Typography } from './pages'
 
-// mocks
-export { paginatorData } from './mocks'
+// data
+export { paginatorData } from './data'
 
 // components
 export { Page } from './components'

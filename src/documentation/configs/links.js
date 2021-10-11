@@ -4,11 +4,11 @@ export const headerLinks = [
     title: 'Home',
     ariaLabel: 'Link to Home Page',
   },
-  {
-    url: '/components',
-    title: 'Components',
-    ariaLabel: 'Link to Components Page',
-  },
+  // {
+  //   url: '/components',
+  //   title: 'Components',
+  //   ariaLabel: 'Link to Components Page',
+  // },
   {
     url: '/typography',
     title: 'Typography',

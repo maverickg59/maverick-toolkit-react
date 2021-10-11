@@ -32,7 +32,9 @@ var Button = /*#__PURE__*/(0, _react.forwardRef)(function (_ref, ref) {
       children = _ref$children === void 0 ? /*#__PURE__*/_react.default.createElement(_react.Fragment, null) : _ref$children,
       ariaLabel = _ref.ariaLabel,
       _ref$ariaCurrent = _ref.ariaCurrent,
-      ariaCurrent = _ref$ariaCurrent === void 0 ? false : _ref$ariaCurrent;
+      ariaCurrent = _ref$ariaCurrent === void 0 ? false : _ref$ariaCurrent,
+      _ref$target = _ref.target,
+      target = _ref$target === void 0 ? '' : _ref$target;
   var colorMap = {
     normal: 'c-btn--normal',
     default: 'c-btn--default',
@@ -50,7 +52,8 @@ var Button = /*#__PURE__*/(0, _react.forwardRef)(function (_ref, ref) {
     "aria-current": ariaCurrent,
     "aria-label": ariaLabel,
     className: classes,
-    href: href
+    href: href,
+    target: target
   }, children);
 
   var button = /*#__PURE__*/_react.default.createElement("button", {
@@ -73,7 +76,8 @@ Button.propTypes = {
   children: _propTypes.default.oneOfType([_propTypes.default.func, _propTypes.default.node]),
   linkAsButton: _propTypes.default.bool,
   ariaLabel: _propTypes.default.string.isRequired,
-  ariaCurrent: _propTypes.default.bool
+  ariaCurrent: _propTypes.default.bool,
+  target: _propTypes.default.string
 };
 var _default = Button;
 exports.default = _default;

@@ -13,6 +13,7 @@ const Button = forwardRef(
       children = <Fragment />,
       ariaLabel,
       ariaCurrent = false,
+      target = '',
     },
     ref
   ) => {
@@ -34,7 +35,8 @@ const Button = forwardRef(
         aria-current={ariaCurrent}
         aria-label={ariaLabel}
         className={classes}
-        href={href}>
+        href={href}
+        target={target}>
         {children}
       </a>
     )
@@ -61,6 +63,7 @@ Button.propTypes = {
   linkAsButton: PropTypes.bool,
   ariaLabel: PropTypes.string.isRequired,
   ariaCurrent: PropTypes.bool,
+  target: PropTypes.string,
 }
 
 export default Button
