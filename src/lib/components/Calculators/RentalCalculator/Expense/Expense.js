@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Expenses = ({ expenses }) => {
+const Expense = ({ expense }) => {
   const {
     propertyTax: { annualTaxCost, annualTaxIncrease },
     insurance: { annualInsuranceCost, annualInsuranceIncrease },
@@ -9,10 +9,10 @@ const Expenses = ({ expenses }) => {
     maintenance: { annualMaintCost, annualMaintIncrease },
     otherCosts: { annualOtherCost, annualOtherCostIncrease },
     managementFee,
-  } = expenses
+  } = expense
   return <div></div>
 }
 
-Expenses.propTypes = {}
+Expense.propTypes = {}
 
-export default Expenses
+export default Expense

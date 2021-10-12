@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React, { Fragment, forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
 
@@ -14,24 +14,28 @@ const Input = forwardRef(
       onPaste,
       name,
       value,
+      label,
     },
     ref
   ) => {
     const classes = cn('c-input', className)
 
     return (
-      <input
-        ref={ref}
-        placeholder={placeholder}
-        className={classes}
-        onBlur={onBlur}
-        onKeyDown={onKeyDown}
-        onChange={onChange}
-        onSelect={onSelect}
-        onPaste={onPaste}
-        name={name}
-        value={value}
-      />
+      <Fragment>
+        <label htmlFor={name}>{label}</label>
+        <input
+          ref={ref}
+          placeholder={placeholder}
+          className={classes}
+          onBlur={onBlur}
+          onKeyDown={onKeyDown}
+          onChange={onChange}
+          onSelect={onSelect}
+          onPaste={onPaste}
+          name={name}
+          value={value}
+        />
+      </Fragment>
     )
   }
 )

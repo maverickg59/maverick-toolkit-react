@@ -1,5 +1,5 @@
 import currency from 'currency.js'
-import { currency as constants } from '../../../'
+import { currency as constants } from '../../..'
 export const formatNoCents = currencyString => {
   return currency(currencyString, {
     precision: 0,
@@ -52,5 +52,5 @@ export default function formatCurrency(currencyString, type) {
     formatLoosely,
     formatStrictly,
   }
-  return types[type](currencyString)
+  return type ? types[type](currencyString) : currencyString
 }

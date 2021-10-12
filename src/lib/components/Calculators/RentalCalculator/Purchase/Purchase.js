@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { CurrencyInput } from '../../../../'
+import { CurrencyInput, Toggle } from '../../../../'
 
 const Purchase = ({ purchase, dispatch, constants }) => {
   const {
@@ -12,9 +12,7 @@ const Purchase = ({ purchase, dispatch, constants }) => {
     closingCosts,
     needsRepair,
   } = purchase
-  // want to update purchase object - type is constants.PURCHASE
-  // pass dispatch into input - handle connected or unconnected inside input
-  const handlePurchaseChange = (type, field) => payload =>
+  const handleChange = (type, field) => payload =>
     dispatch({
       type: type,
       field: field,
@@ -22,21 +20,26 @@ const Purchase = ({ purchase, dispatch, constants }) => {
     })
 
   return (
-    <div className='o-row__item u-1/1'>
-      <div className='o-col o-col--standard u-m-sm'>
-        <div className='o-col__item'>
-          <label htmlFor={constants.PURCHASE_PRICE_NAME}>
-            {constants.PURCHASE_PRICE_LABEL}
-          </label>
+    <div className='o-row__item u-1/2'>
+      <div className='o-row'>
+        <div className='o-row__item u-1/1'>
           <CurrencyInput
+            label={constants.PURCHASE_PRICE_LABEL}
             value={purchasePrice}
             name={constants.PURCHASE_PRICE_NAME}
-            onChange={() =>
-              handlePurchaseChange(
-                constants.PURCHASE,
-                constants.PURCHASE_PRICE_NAME
-              )
-            }
+            onChange={handleChange(
+              constants.PURCHASE,
+              constants.PURCHASE_PRICE
+            )}
+          />
+        </div>
+      </div>
+      <div className='o-row'>
+        <div className='o-row__item u-1/1'>
+          <Toggle
+            type='checkbox'
+            checked={useLoan}
+            onChange={handleChange(constants.PURCHASE, 'useLoan')}
           />
         </div>
       </div>

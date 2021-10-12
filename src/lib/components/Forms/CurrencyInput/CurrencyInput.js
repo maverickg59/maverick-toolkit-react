@@ -1,15 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import formatCurrency, {
-  setCursorPosition,
-  formatNoCents,
-  formatStrictly,
-} from './currencyHelper'
-import { Input, currency, usePrevious } from '../../../'
+import formatCurrency, { setCursorPosition } from './currencyHelper'
+import { Input, currency, usePrevious } from '../../..'
 
-const CurrencyInput = ({ value = 0, maxDollar = 16, name }) => {
+const CurrencyInput = ({ value, maxDollar = 16, name, onChange, label }) => {
   const inputRef = useRef()
-  const [currencyValue, setCurrencyValue] = useState(formatStrictly(value))
+  let currencyValue = value
   const [pasteValue, setPasteValue] = useState()
   const [selectedValue, setSelectedValue] = useState()
   const [cursor, setCursor] = useState(0)
@@ -21,9 +17,7 @@ const CurrencyInput = ({ value = 0, maxDollar = 16, name }) => {
   useEffect(() => {
     inputRef.current?.setSelectionRange(cursor, cursor)
   }, [cursor])
-  const format = (currStr, type) =>
-    setCurrencyValue(formatCurrency(currStr, type))
-  const handleChange = e => {
+  const operateOnCurrencyValue = (e, currencyValue) => {
     setCursor(e.target.selectionStart)
     const currStr = e.target.value
     const currStrArr = currStr.split('.')
@@ -34,77 +28,77 @@ const CurrencyInput = ({ value = 0, maxDollar = 16, name }) => {
     const pCAL = prevCurrArr?.length
     if (currStrArr[0].length > maxDollar) {
       if (cL === 0) {
-        format(prevCurrStr, currency.NO_CENTS)
+        formatCurrency(prevCurrStr, currency.NO_CENTS)
       } else if (cL === 1) {
-        format(prevCurrStr, currency.LOOSELYLY)
+        formatCurrency(prevCurrStr, currency.LOOSELYLY)
       } else {
-        format(prevCurrStr, currency.STRICT)
+        formatCurrency(prevCurrStr, currency.STRICT)
       }
     } else if (pasteValue) {
       const split = pasteValue.split('.')
       const cleanDL = split[0].replace(/[^0-9]/g, '').length
       const cleanCL = split[1]?.replace(/[^0-9]/g, '').length
       if (cleanDL > maxDollar || cleanCL > 2 || isNaN(pasteValue)) {
-        format(0, currency.STRICT)
+        formatCurrency(0, currency.STRICT)
       } else if (cleanCL === 0) {
-        format(pasteValue, currency.NO_CENTS)
+        formatCurrency(pasteValue, currency.NO_CENTS)
       } else if (cleanCL === 1) {
-        format(pasteValue, currency.LOOSELYLY)
+        formatCurrency(pasteValue, currency.LOOSELYLY)
       } else {
-        format(pasteValue, currency.STRICT)
+        return formatCurrency(pasteValue, currency.STRICT)
       }
       setPasteValue()
     } else if (selectedValue?.length === prevCurrStr?.length) {
-      format(currStr, currency.NO_CENTS)
       setCursorPosition(currStr, e, setCursor, false, true)
+      return formatCurrency(currStr, currency.NO_CENTS)
     } else if (key === '.' && pCAL === 1) {
       if (cL === 0) {
-        setCurrencyValue(`${currStr}`)
+        return formatCurrency(`${currStr}`)
       } else if (cL === 2) {
-        format(currStr, currency.STRICT)
+        return formatCurrency(currStr, currency.STRICT)
       } else {
-        format(currStr, currency.LOOSELY)
+        return formatCurrency(currStr, currency.LOOSELY)
       }
     } else if (key === currency.BACKSPACE || key === currency.DELETE) {
       if (dL === 1 && cL === 0) {
-        setCurrencyValue(currency.DOLLAR)
+        return formatCurrency(currency.DOLLAR)
       } else {
         if (cL === 2) {
-          format(currStr, currency.STRICT)
           setCursorPosition(currStr, e, setCursor, true)
+          return formatCurrency(currStr, currency.STRICT)
         } else if (cL === 1) {
-          format(currStr, currency.LOOSELY)
           setCursorPosition(currStr, e, setCursor, true)
+          return formatCurrency(currStr, currency.LOOSELY)
         } else if (
           cL === 0 &&
           prevCurrStr[prevCurrStr.length - 1] === currency.PERIOD
         ) {
-          format(currStr, currency.NO_CENTS)
           setCursorPosition(currStr, e, setCursor, true)
+          return formatCurrency(currStr, currency.NO_CENTS)
         } else if (cL === 0) {
-          setCurrencyValue(`${formatNoCents(currStr)}.`)
           setCursorPosition(currStr, e, setCursor, true)
+          return formatCurrency(`${currStr}`)
         }
       }
     } else if (key !== currency.PERIOD) {
       if (cL === 0) {
-        format(currStr, currency.NO_CENTS)
         setCursorPosition(currStr, e, setCursor, false)
+        return formatCurrency(currStr, currency.NO_CENTS)
       } else if (cL === 1) {
-        format(currStr, currency.LOOSELY)
         setCursorPosition(currStr, e, setCursor, false)
+        return formatCurrency(currStr, currency.LOOSELY)
       } else {
         const shouldUpdate = prevCurrArr[1].split('').length === 1
         const cents = shouldUpdate ? currStrArr[1] : prevCurrArr[1]
         const updatedCurrStr = [currStrArr[0], cents].join('.')
-        format(updatedCurrStr, currency.STRICT)
         setCursorPosition(currStr, e, setCursor, false)
+        return formatCurrency(updatedCurrStr, currency.STRICT)
       }
     }
   }
   const handleKeyDown = e => setKey(e.key)
   const handlePaste = e => setPasteValue(e.clipboardData.getData('Text'))
-  const handleBlur = () => format(currencyValue, currency.STRICT)
+  const handleBlur = () => formatCurrency(currencyValue, currency.STRICT)
   const handleSelect = e =>
     setSelectedValue(
       e.target.value.substring(e.target.selectionStart, e.target.selectionEnd)
@@ -115,12 +109,13 @@ const CurrencyInput = ({ value = 0, maxDollar = 16, name }) => {
       placeholder={currency.PLACEHOLDER}
       className='c-input__currency'
       onBlur={() => handleBlur()}
-      onChange={e => handleChange(e)}
+      onChange={e => onChange(operateOnCurrencyValue(e, value))}
       onKeyDown={e => handleKeyDown(e)}
       onSelect={e => handleSelect(e)}
       onPaste={e => handlePaste(e)}
       name={name}
       value={currencyValue}
+      label={label}
     />
   )
 }
@@ -128,7 +123,7 @@ const CurrencyInput = ({ value = 0, maxDollar = 16, name }) => {
 CurrencyInput.propTypes = {
   placeholder: PropTypes.string,
   className: PropTypes.string,
-  value: PropTypes.number,
+  value: PropTypes.string,
 }
 
 export default CurrencyInput

@@ -57,6 +57,8 @@
     "@fortawesome/react-fontawesome": "^0.1.13",
     "classnames": "^2.2.6",
     "currency.js": "^2.0.4",
+    "immer": "^9.0.6",
+    "lodash": "^4.17.21",
     "maverick-toolkit-css": "^0.2.5",
     "maverick-toolkit-utils": "^0.0.4",
     "react-router-dom": "^5.2.0",

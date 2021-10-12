@@ -1,6 +1,6 @@
 const initialState = {
   purchase: {
-    purchasePrice: 350000,
+    purchasePrice: '$350000.00',
     useLoan: true,
     moneyDownPercent: 20,
     rate: 4.5,
@@ -8,7 +8,7 @@ const initialState = {
     closingCosts: 3000,
     needsRepair: false,
   },
-  expenses: {
+  expense: {
     propertyTax: {
       annualTaxCost: 1500,
       annualTaxIncrease: 3,
