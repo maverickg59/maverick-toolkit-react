@@ -1,5 +1,5 @@
 export { Divestiture } from './Divestiture'
-export { Expense } from './Expense'
+export { Expenses } from './Expenses'
 export { Income } from './Income'
 export { Purchase } from './Purchase'
 export { default as RentalCalculator } from './RentalCalculator'

@@ -15,6 +15,7 @@ const Input = forwardRef(
       name,
       value,
       label,
+      type,
     },
     ref
   ) => {
@@ -34,6 +35,7 @@ const Input = forwardRef(
           onPaste={onPaste}
           name={name}
           value={value}
+          type={type}
         />
       </Fragment>
     )

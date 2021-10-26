@@ -1,12 +1,109 @@
-export const PURCHASE_CONSTANTS = {
-  PURCHASE: 'purchase',
-  PURCHASE_PRICE: 'purchasePrice',
-  PURCHASE_PRICE_NAME: 'c-rental-calculator__purchase-price',
-  PURCHASE_PRICE_LABEL: 'Purchase Price',
-  USE_LOAN: 'useLoan',
-  MONEY_DOWN: 'moneyDownPercent',
-  RATE: 'rate',
-  TERM: 'term',
-  CLOSING_COSTS: 'closingCosts',
-  NEEDS_REPAIR: 'needsRepair',
-}
+// toggle labels
+export const TOGGLE_TRUE = 'Yes'
+export const TOGGLE_FALSE = 'No'
+// object levels
+export const FIRST_LEVEL_PROPERTY = 'firstLevelProperty'
+export const SECOND_LEVEL_PROPERTY = 'secondLevelProperty'
+// parent properties
+export const PURCHASE = 'purchase'
+export const EXPENSE = 'expenses'
+export const INCOME = 'income'
+export const DIVESTITURE = 'divestiture'
+// child properties
+export const PURCHASE_PRICE = 'purchasePrice'
+export const LOAN = 'loan'
+export const CLOSING_COSTS = 'closingCosts'
+export const REPAIR = 'repair'
+export const ANNUAL_PROPERTY_TAX_EXPENSES = 'propertyTaxExpenses'
+export const ANNUAL_INSURANCE_EXPENSES = 'insuranceExpenses'
+export const ANNUAL_HOA_EXPENSES = 'hoaExpenses'
+export const ANNUAL_MAINTENANCE_EXPENSES = 'maintenanceExpenses'
+export const ANNUAL_OTHER_EXPENSES = 'otherExpenses'
+export const ANNUAL_MANAGEMENT_EXPENSES = 'managementExpenses'
+// purchase price
+export const PURCHASE_PRICE_LABEL = 'Purchase Price:'
+export const PURCHASE_PRICE_NAME = 'c-rental-calculator__purchase-price'
+export const PURCHASE_PRICE_PLACEHOLDER = '$100,000'
+// use loan
+export const USE_LOAN = 'useLoan'
+export const USE_LOAN_LABEL = 'Use a loan:'
+export const USE_LOAN_NAME = 'c-rental-calculator__use-loan'
+export const MONEY_DOWN = 'moneyDownPercent'
+export const MONEY_DOWN_LABEL = 'Down Payment:'
+export const MONEY_DOWN_NAME = 'c-rental-calculator__down-payment'
+export const MONEY_DOWN_PLACEHOLDER = '20%'
+export const RATE = 'rate'
+export const RATE_LABEL = 'Interest rate:'
+export const RATE_NAME = 'c-rental-calculator__interest-rate'
+export const RATE_PLACEHOLDER = '3.5%'
+export const TERM = 'term'
+export const TERM_LABEL = 'Loan term:'
+export const TERM_NAME = 'c-rental-calculator__loan_term'
+export const TERM_PLACEHOLDER = '30'
+// closing costs
+export const CLOSING_COSTS_LABEL = 'Closing costs:'
+export const CLOSING_COSTS_NAME = 'c-rental-calculator__closing-costs'
+export const CLOSING_COSTS_PLACEHOLDER = '$3,000'
+// needs repair
+export const NEEDS_REPAIR = 'needsRepair'
+export const NEEDS_REPAIR_LABEL = 'Needs repair:'
+export const NEEDS_REPAIR_NAME = 'c-rental-calculator__needs-repair'
+export const REPAIR_COSTS = 'repairCosts'
+export const REPAIR_COSTS_LABEL = 'Repair costs:'
+export const REPAIR_COSTS_NAME = 'c-rental-calculator__repair-cost'
+export const REPAIR_COSTS_PLACEHOLDER = '$10,000'
+export const POST_REPAIR_VALUE = 'postRepairValue'
+export const POST_REPAIR_VALUE_LABEL = 'Post-repair value:'
+export const POST_REPAIR_VALUE_NAME = 'c-rental-calculator__post-repair-value'
+export const POST_REPAIR_VALUE_PLACEHOLDER = '$150,000'
+// expenses generic labels
+export const ANNUAL_EXPENSES_INCREASE_LABEL = 'Annual increase:'
+// property tax expenses
+export const ANNUAL_PROPERTY_TAX_EXPENSES_LABEL = 'Property tax:'
+export const ANNUAL_PROPERTY_TAX_COST = 'annualTaxCost'
+export const ANNUAL_PROPERTY_TAX_COST_NAME = 'c-rental-calculator__tax-cost'
+export const ANNUAL_PROPERTY_TAX_COST_PLACEHOLDER = '$1,500'
+export const ANNUAL_PROPERTY_TAX_COST_INCREASE = 'annualTaxIncrease'
+export const ANNUAL_PROPERTY_TAX_COST_INCREASE_NAME =
+  'c-rental-calculator__tax-increase'
+export const ANNUAL_PROPERTY_TAX_COST_INCREASE_PLACEHOLDER = '3%'
+// insurance expenses
+export const ANNUAL_INSURANCE_EXPENSES_LABEL = 'Total insurance:'
+export const ANNUAL_INSURANCE_COST = 'annualInsuranceCost'
+export const ANNUAL_INSURANCE_COST_NAME = 'c-rental-calculator__insurance-cost'
+export const ANNUAL_INSURANCE_COST_PLACEHOLDER = '$800'
+export const ANNUAL_INSURANCE_COST_INCREASE = 'annualInsuranceIncrease'
+export const ANNUAL_INSURANCE_COST_INCREASE_NAME =
+  'c-rental-calculator__insurance-increase'
+export const ANNUAL_INSURANCE_COST_INCREASE_PLACEHOLDER = '3%'
+// hoa expenses
+export const ANNUAL_HOA_COST_LABEL = 'HOA fee:'
+export const ANNUAL_HOA_COST = 'annualHOACost'
+export const ANNUAL_HOA_COST_NAME = 'c-rental-calculator__hoa-cost'
+export const ANNUAL_HOA_COST_PLACEHOLDER = '$0'
+export const ANNUAL_HOA_COST_INCREASE = 'annualHOAIncrease'
+export const ANNUAL_HOA_COST_INCREASE_NAME = 'c-rental-calculator__hoa-increase'
+export const ANNUAL_HOA_COST_INCREASE_PLACEHOLDER = '0%'
+// maintenance expenses
+export const ANNUAL_MAINTENANCE_EXPENSES_LABEL = 'Maintenance:'
+export const ANNUAL_MAINTENANCE_COST = 'annualMaintenanceCost'
+export const ANNUAL_MAINTENANCE_COST_NAME =
+  'c-rental-calculator__maintenance-cost'
+export const ANNUAL_MAINTENANCE_COST_PLACEHOLDER = '$1,000'
+export const ANNUAL_MAINTENANCE_COST_INCREASE = 'annualMaintenanceIncrease'
+export const ANNUAL_MAINTENANCE_COST_INCREASE_NAME =
+  'c-rental-calculator__maintenance-increase'
+export const ANNUAL_MAINTENANCE_COST_INCREASE_PLACEHOLDER = '3%'
+// other expenses
+export const ANNUAL_OTHER_EXPENSES_LABEL = 'Other expenses:'
+export const ANNUAL_OTHER_COST = 'annualOtherExpenses'
+export const ANNUAL_OTHER_COST_NAME = 'c-rental-calculator__other-cost'
+export const ANNUAL_OTHER_COST_PLACEHOLDER = '$200'
+export const ANNUAL_OTHER_COST_INCREASE = 'annualOtherExpensesIncrease'
+export const ANNUAL_OTHER_COST_INCREASE_NAME =
+  'c-rental-calculator__other-increase'
+export const ANNUAL_OTHER_COST_INCREASE_PLACEHOLDER = '3%'
+// management expenses
+export const ANNUAL_MANAGEMENT_EXPENSES_LABEL = 'Management fee:'
+export const ANNUAL_MANAGEMENT_COST_NAME = 'c-rental-calculator__management-fee'
+export const ANNUAL_MANAGEMENT_COST_PLACEHOLDER = '0%'

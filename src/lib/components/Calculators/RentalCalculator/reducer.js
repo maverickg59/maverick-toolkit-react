@@ -1,23 +1,20 @@
-import { constants } from './'
+import produce from 'immer'
+import { FIRST_LEVEL_PROPERTY, SECOND_LEVEL_PROPERTY } from './constants'
 
-const purchaseReducer = (state, action) => {
-  const { field, payload } = action
-  console.log(field, payload)
-  return {
-    ...state,
-    purchase: {
-      ...state.purchase,
-      [field]: payload,
-    },
-  }
-}
-
-export default function reducer(state, action) {
-  const { PURCHASE_CONSTANTS } = constants
-  switch (action.type) {
-    case PURCHASE_CONSTANTS.PURCHASE:
-      return purchaseReducer(state, action)
+const reducer = produce((draft, action) => {
+  const { type, parent, child, field, payload } = action
+  switch (type) {
+    case FIRST_LEVEL_PROPERTY:
+      console.log(type, parent, child, field, payload)
+      draft[parent][child] = payload
+      break
+    case SECOND_LEVEL_PROPERTY:
+      console.log(type, parent, child, field, payload)
+      draft[parent][child][field] = payload
+      break
     default:
       throw new Error()
   }
-}
+})
+
+export default reducer

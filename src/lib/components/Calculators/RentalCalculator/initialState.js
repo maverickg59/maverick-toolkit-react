@@ -1,35 +1,41 @@
 const initialState = {
   purchase: {
-    purchasePrice: '$350000.00',
-    useLoan: true,
-    moneyDownPercent: 20,
-    rate: 4.5,
-    term: 30,
-    closingCosts: 3000,
-    needsRepair: false,
+    purchasePrice: '',
+    loan: {
+      useLoan: true,
+      moneyDownPercent: '',
+      rate: '',
+      term: '',
+    },
+    closingCosts: '',
+    repair: {
+      needsRepair: true,
+      repairCosts: '',
+      postRepairValue: '',
+    },
   },
-  expense: {
-    propertyTax: {
-      annualTaxCost: 1500,
-      annualTaxIncrease: 3,
+  expenses: {
+    propertyTaxExpenses: {
+      annualTaxCost: '',
+      annualTaxIncrease: '',
     },
-    insurance: {
-      annualInsuranceCost: 800,
-      annualInsuranceIncrease: 3,
+    insuranceExpenses: {
+      annualInsuranceCost: '',
+      annualInsuranceIncrease: '',
     },
-    hoaFee: {
-      annualHOACost: 0,
-      annualHOAIncrease: 0,
+    hoaExpenses: {
+      annualHOACost: '',
+      annualHOAIncrease: '',
     },
-    managementFee: 0,
-    maintenance: {
-      annualMaintCost: 1000,
-      annualMaintIncrease: 3,
+    maintenanceExpenses: {
+      annualMaintenanceCost: '',
+      annualMaintenanceIncrease: '',
     },
-    otherCosts: {
-      annualOtherCost: 200,
-      annualOtherCostIncrease: 3,
+    otherExpenses: {
+      annualOtherExpenses: '',
+      annualOtherExpensesIncrease: '',
     },
+    managementExpenses: '',
   },
   income: {
     monthlyRent: {

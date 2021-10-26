@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { toggle } from '../../..'
+import { Input } from '../'
 
-const Toggle = ({ onChange, checked, name, label }) => {
+const Toggle = ({ onChange, checked, name, label, toggleLabels }) => {
   return (
     <Fragment>
       <label htmlFor={name}>{label}</label>
-      <span>{checked ? toggle.TOGGLE_ON : toggle.TOGGLE_OFF}</span>
-      <input
+      <span>{checked ? toggleLabels[0] : toggleLabels[1]}</span>
+      <Input
         name={name}
         type='checkbox'
         checked={checked}
