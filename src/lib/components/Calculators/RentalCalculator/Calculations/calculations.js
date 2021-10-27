@@ -1,3 +1,14 @@
+// calculate
+// annual income
+// annual mortgage payments
+// annual vacancy cost
+// annual property tax cost
+// annual insurance cost
+// annual maintenance cost
+// annual other cost
+// annual cash flow
+// annual net operating income
+
 const initialState = {
   purchase: {
     purchasePrice: '',
@@ -56,5 +67,3 @@ const initialState = {
     sellingCostPercent: '',
   },
 }
-
-export default initialState

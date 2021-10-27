@@ -12,7 +12,7 @@ const PropertyTaxExpenses = ({
     EXPENSE,
     ANNUAL_PROPERTY_TAX_EXPENSES,
     ANNUAL_PROPERTY_TAX_COST,
-    ANNUAL_PROPERTY_TAX_INCREASE,
+    ANNUAL_PROPERTY_TAX_COST_INCREASE,
   } = constants
   return (
     <div className='o-row'>
@@ -50,7 +50,7 @@ const PropertyTaxExpenses = ({
             SECOND_LEVEL_PROPERTY,
             EXPENSE,
             ANNUAL_PROPERTY_TAX_EXPENSES,
-            ANNUAL_PROPERTY_TAX_INCREASE
+            ANNUAL_PROPERTY_TAX_COST_INCREASE
           )}
         />
       </div>

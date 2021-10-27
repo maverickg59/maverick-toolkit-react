@@ -1,7 +1,7 @@
 import React, { createContext, useReducer } from 'react'
 import { Purchase, Expenses, Income, Divestiture, constants } from './'
 import initialState from './initialState'
-import reducer from './reducer'
+import reducer from './reducers'
 import PropTypes from 'prop-types'
 
 const ApplicationContext = createContext()

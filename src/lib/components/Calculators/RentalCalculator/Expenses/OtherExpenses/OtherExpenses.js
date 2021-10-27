@@ -4,7 +4,7 @@ import { ApplicationContext } from '../../RentalCalculator'
 import { CurrencyInput, PercentInput } from '../../../../..'
 
 const OtherExpenses = ({
-  otherExpenses: { annualOtherExpenses, annualOtherExpensesIncrease },
+  otherExpenses: { annualOtherCost, annualOtherCostIncrease },
 }) => {
   const { dispatch, constants } = useContext(ApplicationContext)
   const {
@@ -21,7 +21,7 @@ const OtherExpenses = ({
           type='text'
           placeholder={constants.ANNUAL_OTHER_COST_PLACEHOLDER}
           label={constants.ANNUAL_OTHER_EXPENSES_LABEL}
-          value={annualOtherExpenses}
+          value={annualOtherCost}
           name={constants.ANNUAL_OTHER_COST_NAME}
           onChange={dispatch(
             SECOND_LEVEL_PROPERTY,
@@ -35,7 +35,7 @@ const OtherExpenses = ({
         <PercentInput
           type='text'
           placeholder={constants.ANNUAL_OTHER_COST_INCREASE_PLACEHOLDER}
-          value={annualOtherExpensesIncrease}
+          value={annualOtherCostIncrease}
           name={constants.ANNUAL_OTHER_COST_INCREASE_NAME}
           onChange={dispatch(
             SECOND_LEVEL_PROPERTY,
