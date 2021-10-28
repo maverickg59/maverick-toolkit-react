@@ -1,34 +1,52 @@
 import React, { createContext, useReducer } from 'react'
-import { Purchase, Expenses, Income, Divestiture, constants } from './'
-import initialState from './initialState'
-import reducer from './reducers'
+import { Button } from '../../../../lib'
 import PropTypes from 'prop-types'
+import {
+  Calculator,
+  Results,
+  constants,
+  calculatorInitialState,
+  reducer,
+  resultsInitialState,
+} from './'
 
 const ApplicationContext = createContext()
 function RentalCalculator(props) {
-  const [state, dispatch] = useReducer(reducer, initialState)
-  const { purchase, expenses, income, divestiture } = state
-  const rentalCalculatorDispatch = (type, parent, child, field) => payload =>
-    dispatch({
+  const [calculatorState, calcDispatch] = useReducer(
+    reducer,
+    calculatorInitialState
+  )
+  const [resultsState, resultsDispatch] = useReducer(
+    reducer,
+    resultsInitialState
+  )
+  const { resultsCalculated } = resultsState
+  const calculatorDispatch = (type, parent, child, field) => payload =>
+    calcDispatch({
       type,
       parent,
       child,
       field,
       payload,
     })
+
   return (
     <ApplicationContext.Provider
       value={{
-        dispatch: rentalCalculatorDispatch,
+        calculatorDispatch,
+        resultsDispatch,
         constants,
       }}>
-      <div className='o-row__item u-1/1'>
-        <h1 className='u-h5'>Rental Property Calculator</h1>
+      <div className='o-row'>
+        <div className='o-row__item u-1/1'>
+          <h1 className='u-h5'>Rental Property Calculator</h1>
+        </div>
+        {resultsCalculated ? (
+          <Results state={resultsState} />
+        ) : (
+          <Calculator state={calculatorState} />
+        )}
       </div>
-      <Purchase purchaseData={purchase} />
-      <Expenses expensesData={expenses} />
-      <Income income={income} />
-      <Divestiture divestiture={divestiture} />
     </ApplicationContext.Provider>
   )
 }

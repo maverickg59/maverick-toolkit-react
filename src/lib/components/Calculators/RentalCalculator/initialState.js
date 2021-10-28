@@ -1,4 +1,4 @@
-const initialState = {
+export const calculatorInitialState = {
   purchase: {
     purchasePrice: '',
     loan: {
@@ -46,7 +46,7 @@ const initialState = {
       monthlyOtherIncome: '',
       annualOtherIncomeIncrease: '',
     },
-    vacancyRatePercent: 3,
+    vacancyRatePercent: '',
   },
   divestiture: {
     isSalePriceKnown: false,
@@ -57,4 +57,23 @@ const initialState = {
   },
 }
 
-export default initialState
+export const resultsInitialState = {
+  resultsCalculated: false,
+  annualIncome: 0,
+  annualMortgagePayments: 0,
+  annualVacancyCost: 0,
+  annualPropertyTaxCost: 0,
+  annualInsuranceCost: 0,
+  annualMaintenanceCost: 0,
+  annualOtherCost: 0,
+  annualCashFlow: 0,
+  annualNetOperatingIncome: 0,
+  annualInternalRateOfReturn: 0,
+  totalProfitUponSale: 0,
+  cashOnCashReturn: 0,
+  capitalizationRate: 0,
+  totalRentalIncome: 0,
+  totalMortgagePayments: 0,
+  totalExpenses: 0,
+  totalNetOperatingIncome: 0,
+}

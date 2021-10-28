@@ -11,7 +11,7 @@ const Toggle = ({ onChange, checked, name, label, toggleLabels }) => {
         name={name}
         type='checkbox'
         checked={checked}
-        onChange={() => onChange(!checked)}
+        onChange={e => onChange(e)(!checked)}
       />
     </Fragment>
   )
