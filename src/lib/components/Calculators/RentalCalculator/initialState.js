@@ -2,7 +2,7 @@ export const calculatorInitialState = {
   purchase: {
     purchasePrice: '',
     loan: {
-      useLoan: true,
+      usesLoan: true,
       moneyDownPercent: '',
       rate: '',
       term: '',
@@ -16,7 +16,7 @@ export const calculatorInitialState = {
   },
   expenses: {
     propertyTaxExpenses: {
-      annualTaxCost: '',
+      annualPropertyTaxCost: '',
       annualTaxIncrease: '',
     },
     insuranceExpenses: {
@@ -49,7 +49,7 @@ export const calculatorInitialState = {
     vacancyRatePercent: '',
   },
   divestiture: {
-    isSalePriceKnown: false,
+    isSalePriceKnown: true,
     sellingPrice: '',
     annualAppreciation: '',
     holdingPeriodYears: '',
@@ -59,7 +59,7 @@ export const calculatorInitialState = {
 
 export const resultsInitialState = {
   resultsCalculated: false,
-  annualIncome: 0,
+  annualIncome: 12,
   annualMortgagePayments: 0,
   annualVacancyCost: 0,
   annualPropertyTaxCost: 0,

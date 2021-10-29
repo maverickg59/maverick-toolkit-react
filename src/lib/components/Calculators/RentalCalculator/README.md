@@ -7,6 +7,8 @@ TODO:
 5. SCSS
 6. link expenses labels correctly
 7. accessibility
+8. move input components into calculator components folder
+9. render calculators based on configs
 
 <!-- results data -->
 

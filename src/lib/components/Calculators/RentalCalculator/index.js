@@ -1,6 +1,4 @@
+export { default as RentalCalculator } from './RentalCalculator'
 export { Calculator } from './Calculator'
 export { Results } from './Results'
-export { default as RentalCalculator } from './RentalCalculator'
-export * as constants from './constants'
-export { default as reducer } from './reducer'
 export { calculatorInitialState, resultsInitialState } from './initialState'

@@ -1,12 +1,10 @@
 import React, { createContext, useReducer } from 'react'
-import { Button } from '../../../../lib'
 import PropTypes from 'prop-types'
+import { reducer, constants } from '../'
 import {
   Calculator,
   Results,
-  constants,
   calculatorInitialState,
-  reducer,
   resultsInitialState,
 } from './'
 
@@ -16,10 +14,7 @@ function RentalCalculator(props) {
     reducer,
     calculatorInitialState
   )
-  const [resultsState, resultsDispatch] = useReducer(
-    reducer,
-    resultsInitialState
-  )
+  const [resultsState, resDispatch] = useReducer(reducer, resultsInitialState)
   const { resultsCalculated } = resultsState
   const calculatorDispatch = (type, parent, child, field) => payload =>
     calcDispatch({
@@ -29,6 +24,14 @@ function RentalCalculator(props) {
       field,
       payload,
     })
+
+  const resultsDispatch = (type, parent, payload) => {
+    resDispatch({
+      type,
+      parent,
+      payload,
+    })
+  }
 
   return (
     <ApplicationContext.Provider
@@ -44,7 +47,10 @@ function RentalCalculator(props) {
         {resultsCalculated ? (
           <Results state={resultsState} />
         ) : (
-          <Calculator state={calculatorState} />
+          <Calculator
+            resultsCalculated={resultsCalculated}
+            state={calculatorState}
+          />
         )}
       </div>
     </ApplicationContext.Provider>
